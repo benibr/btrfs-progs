@@ -258,6 +258,11 @@ struct btrfs_util_subvolume_info {
 	 * subvolume was not received. See the note on @received_uuid.
 	 */
 	struct timespec rtime;
+
+	/**
+	 * @dtime: Time when this subvolume will expire.
+	 */
+	struct timespec dtime;
 };
 
 /**

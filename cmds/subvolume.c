@@ -1402,6 +1402,15 @@ static int cmd_subvolume_show(const struct cmd_struct *cmd, int argc, char **arg
 		strcpy(tstr, "-");
 	pr_verbose(LOG_DEFAULT, "\tCreation time: \t\t%s\n", tstr);
 
+	if (subvol.dtime.tv_sec) {
+		struct tm dtm;
+
+		localtime_r(&subvol.dtime.tv_sec, &dtm);
+		strftime(tstr, 256, "%Y-%m-%d %X %z", &dtm);
+	} else
+		strcpy(tstr, "-");
+	pr_verbose(LOG_DEFAULT, "\tExpiration time: \t%s\n", tstr);
+
 	pr_verbose(LOG_DEFAULT, "\tSubvolume ID: \t\t%" PRIu64 "\n", subvol.id);
 	pr_verbose(LOG_DEFAULT, "\tGeneration: \t\t%" PRIu64 "\n", subvol.generation);
 	pr_verbose(LOG_DEFAULT, "\tGen at creation: \t%" PRIu64 "\n", subvol.otransid);
