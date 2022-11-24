@@ -770,9 +770,10 @@ struct btrfs_ioctl_get_subvol_info_args {
 	struct btrfs_ioctl_timespec otime;
 	struct btrfs_ioctl_timespec stime;
 	struct btrfs_ioctl_timespec rtime;
+	struct btrfs_ioctl_timespec dtime;
 
 	/* Must be zero */
-	__u64 reserved[8];
+	__u32 reserved[13];
 };
 
 #define BTRFS_MAX_ROOTREF_BUFFER_NUM			255

@@ -870,13 +870,14 @@ struct btrfs_root_item {
 	struct btrfs_timespec otime;
 	struct btrfs_timespec stime;
 	struct btrfs_timespec rtime;
+	struct btrfs_timespec dtime;
 
 	/*
 	 * If we want to use a specific set of fst/checksum/extent roots for
 	 * this root.
 	 */
 	__le64 global_tree_id;
-        __le64 reserved[7]; /* for future */
+        __le32 reserved[11]; /* for future */
 } __attribute__ ((__packed__));
 
 /*

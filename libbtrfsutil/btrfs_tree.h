@@ -643,7 +643,8 @@ struct btrfs_root_item {
 	struct btrfs_timespec otime;
 	struct btrfs_timespec stime;
 	struct btrfs_timespec rtime;
-	__le64 reserved[8]; /* for future */
+	struct btrfs_timespec dtime;
+	__le32 reserved[13]; /* for future */
 } __attribute__ ((__packed__));
 
 /*

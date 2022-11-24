@@ -773,6 +773,8 @@ int btrfs_make_root_dir(struct btrfs_trans_handle *trans,
 	btrfs_set_stack_timespec_nsec(&inode_item.mtime, 0);
 	btrfs_set_stack_timespec_sec(&inode_item.otime, now);
 	btrfs_set_stack_timespec_nsec(&inode_item.otime, 0);
+	btrfs_set_stack_timespec_sec(&inode_item.dtime, now);
+	btrfs_set_stack_timespec_nsec(&inode_item.dtime, 0);
 
 	if (root->fs_info->tree_root == root)
 		btrfs_set_super_root_dir(root->fs_info->super_copy, objectid);
