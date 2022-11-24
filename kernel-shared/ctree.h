@@ -2280,6 +2280,13 @@ static inline struct btrfs_timespec* btrfs_root_rtime(
 	ptr += offsetof(struct btrfs_root_item, rtime);
 	return (struct btrfs_timespec *)ptr;
 }
+static inline struct btrfs_timespec* btrfs_root_dtime(
+		struct btrfs_root_item *root_item)
+{
+	unsigned long ptr = (unsigned long)root_item;
+	ptr += offsetof(struct btrfs_root_item, dtime);
+	return (struct btrfs_timespec *)ptr;
+}
 
 /* struct btrfs_root_backup */
 BTRFS_SETGET_STACK_FUNCS(backup_tree_root, struct btrfs_root_backup,

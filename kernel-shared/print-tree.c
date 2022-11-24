@@ -615,6 +615,8 @@ static void print_root_item(struct extent_buffer *leaf, int slot)
 					"\t\tstime ", "\n");
 		print_timespec(leaf, btrfs_root_rtime(ri),
 					"\t\trtime ", "\n");
+		print_timespec(leaf, btrfs_root_dtime(ri),
+					"\t\tdtime ", "\n");
 	}
 }
 
