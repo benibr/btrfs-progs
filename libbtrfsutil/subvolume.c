@@ -281,6 +281,7 @@ static void copy_root_item(struct btrfs_util_subvolume_info *subvol,
 	copy_timespec(&subvol->otime, &root->otime);
 	copy_timespec(&subvol->stime, &root->stime);
 	copy_timespec(&subvol->rtime, &root->rtime);
+	copy_timespec(&subvol->dtime, &root->dtime);
 }
 
 PUBLIC enum btrfs_util_error btrfs_util_subvolume_info(const char *path,
@@ -422,6 +423,8 @@ static enum btrfs_util_error get_subvolume_info_unprivileged(int fd,
 	subvol->stime.tv_nsec = info.stime.nsec;
 	subvol->rtime.tv_sec = info.rtime.sec;
 	subvol->rtime.tv_nsec = info.rtime.nsec;
+	subvol->dtime.tv_sec = info.dtime.sec;
+	subvol->dtime.tv_nsec = info.dtime.nsec;
 
 	return BTRFS_UTIL_OK;
 }
